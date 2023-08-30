@@ -25,18 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function display(arr) {
         table.innerHTML = "";
         arr.forEach(e => table.innerHTML += `
-<tr>
-    <td>${e.nombre}</td>
-    <td>${e.apellido}</td>
-    <td>${e.grupo}</td>
-    <td>${e.sala}</td>
-    <td>
-        <button class="btn btn-danger" onclick="del('${e._id}')">
-            <i class='fa-solid fa-trash'></i>
-        </button>
-    </td>
-</tr>
-`);
+        <tr>
+            <td>${e.nombre}</td>
+            <td>${e.apellido}</td>
+            <td>${e.grupo}</td>
+            <td>${e.sala}</td>
+            <td>
+                <button class="btn btn-danger" onclick="del('${e._id}')">
+                    <i class='fa-solid fa-trash'></i>
+                </button>
+            </td>
+        </tr>
+        `);
     }
 
     setInterval(() => {
