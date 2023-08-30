@@ -21,13 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
         table.innerHTML = "";
         arr.forEach(e => table.innerHTML += `
     <tr>
-    <td>${e.nombre}</td>
-    <td>${e.apellido}</td>
-    <td>${e.grupo}</td>
-    <td>${e.sala}</td>
-    <td><button class="btn btn-danger" onclick="fetch('${endp + '/' + e._id}', {
-        method: 'DELETE'
-    }).then(r=>console.log(r))"><i class='fa-solid fa-trash'></i></button></td></tr>
+        <td>${e.nombre}</td>
+        <td>${e.apellido}</td>
+        <td>${e.grupo}</td>
+        <td>${e.sala}</td>
+        <td>
+            <button class="btn btn-danger" onclick="fetch('${endp + '/' + e._id}',{method:'DELETE'})">
+                <i class='fa-solid fa-trash'></i>
+            </button>
+        </td>
+    </tr>
     `);
     }
 
