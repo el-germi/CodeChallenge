@@ -1,6 +1,10 @@
 const api = 'https://crudcrud.com/api/adc54d7744e946cd8ffc1851accabb6d'
 const endp = api + '/grupo265'
 
+function del(cid) {
+    fetch(endp + '/' + cid, { method: 'DELETE' })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("send").addEventListener("click", () => {
@@ -17,21 +21,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const table = document.getElementById("table");
+
     function display(arr) {
         table.innerHTML = "";
         arr.forEach(e => table.innerHTML += `
-    <tr>
-        <td>${e.nombre}</td>
-        <td>${e.apellido}</td>
-        <td>${e.grupo}</td>
-        <td>${e.sala}</td>
-        <td>
-            <button class="btn btn-danger" onclick="fetch('${endp + '/' + e._id}',{method:'DELETE'})">
-                <i class='fa-solid fa-trash'></i>
-            </button>
-        </td>
-    </tr>
-    `);
+<tr>
+    <td>${e.nombre}</td>
+    <td>${e.apellido}</td>
+    <td>${e.grupo}</td>
+    <td>${e.sala}</td>
+    <td>
+        <button class="btn btn-danger" onclick="del('${e._id}')">
+            <i class='fa-solid fa-trash'></i>
+        </button>
+    </td>
+</tr>
+`);
     }
 
     setInterval(() => {
